@@ -82,3 +82,5 @@ iOSInjectionProject/
 # End of https://www.gitignore.io/api/swift
 .bundle/
 vendor/
+
+.DS_Store
