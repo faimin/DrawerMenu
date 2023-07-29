@@ -70,9 +70,10 @@ public class DrawerMenu: UIViewController, UIGestureRecognizerDelegate {
     private var startLocation: CGPoint = .zero
     private var leftBeganStatus: Bool = false
     private var rightBeganStatus: Bool = false
-    private var panGestureRecognizer: UIPanGestureRecognizer?
-    private var leftEdgePanGestureRecognizer: UIScreenEdgePanGestureRecognizer?
-    private var rightEdgePanGestureRecognizer: UIScreenEdgePanGestureRecognizer?
+    
+    public var panGestureRecognizer: UIPanGestureRecognizer?
+    public var leftEdgePanGestureRecognizer: UIScreenEdgePanGestureRecognizer?
+    public var rightEdgePanGestureRecognizer: UIScreenEdgePanGestureRecognizer?
 
     private var leftProgress: CGFloat {
         get {
@@ -518,6 +519,16 @@ public class DrawerMenu: UIViewController, UIGestureRecognizerDelegate {
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return shouldRecognizeSimultaneously
+    }
+    
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard let panGesture = gestureRecognizer as? UIPanGestureRecognizer else {
+            return true
+        }
+        
+        let point = panGesture.velocity(in: self.view)
+        let canBegin = abs(point.y) < abs(point.x) && abs(point.x) > 100
+        return canBegin
     }
 
     // MARK: Override
