@@ -111,6 +111,10 @@ public class DrawerMenu: UIViewController, UIGestureRecognizerDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public override var shouldAutomaticallyForwardAppearanceMethods: Bool {
+        return false
+    }
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
