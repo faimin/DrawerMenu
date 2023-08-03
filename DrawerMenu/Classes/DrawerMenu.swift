@@ -121,7 +121,16 @@ public class DrawerMenu: UIViewController, UIGestureRecognizerDelegate {
         addTapGesture()
         addPanGesture(type: panGestureType)
         changeStyle(style: style)
-
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        centerViewController.beginAppearanceTransition(true, animated: animated)
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        centerViewController.endAppearanceTransition()
     }
 
     // MARK: Public
