@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DrawerMenuKit'
-  s.version          = '1.0.1.2'
+  s.version          = '1.0.1.3'
   s.summary          = 'Simple DrawerMenu'
   s.homepage         = 'https://github.com/y-hryk/DrawerMenu'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
